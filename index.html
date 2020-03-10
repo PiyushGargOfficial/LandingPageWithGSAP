@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LandingPageWithGsap2
+    </title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+</head>
+
+<body>
+    <header>
+        <nav class="main-nav">
+            <div class="logo">
+                <a href="/">San Francisco</a>
+            </div>
+            <div class="hamburger-menu">
+                <div class="bar"></div>
+            </div>
+            <ul class="nav-list">
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        Home
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        Tours
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        Pricing
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        Locations
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        About
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <section class="hero">
+        <div class="hero-clipped">
+            <div class="hero-textbox">
+                <h1 class="main-heading">San Francisco</h1>
+                <h2 class="sub-heading">Learn about our awesome tourist attractions</h2>
+                <a href="#" class="cta-btn">Learn More</a>
+            </div>
+        </div>
+    </section>
+</body>
+
+<!--Place before main script -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.4/gsap.min.js"></script>
+
+<script>
+    const mainNav = document.querySelector('.main-nav');
+    const hamburgerMenu = document.querySelector('.hamburger-menu');
+
+
+    hamburgerMenu.addEventListener('click', () => {
+        mainNav.classList.toggle('open');
+    })
+
+    //gsap.fromTo('elementToBeAnimated',from/StartingPoint,to/EndingPoint)
+    gsap.fromTo('.hero-clipped', {
+        scaleX: 0
+    }, {
+        duration: 1,
+        scaleX: 1
+    });
+    gsap.fromTo('.logo', {
+        x: -200,
+        opacity: 0
+    }, {
+        duration: 1,
+        delay: .5,
+        x: 0,
+        opacity: 1
+    });
+    gsap.fromTo('.hamburger-menu', {
+        x: 200,
+        opacity: 0
+    }, {
+        duration: 1,
+        delay: .8,
+        x: 0,
+        opacity: 1
+    });
+    //we used transform translate in percentages so here also.
+    gsap.fromTo('.hero-textbox', {
+        yPercent: 40,
+        opacity: 0
+    }, {
+        duration: 1,
+        delay: 1.3,
+        yPercent: 0,
+        opacity: 1
+    });
+</script>
+
+</html>
